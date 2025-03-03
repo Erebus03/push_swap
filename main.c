@@ -13,9 +13,16 @@ int	main(int ac, char **av)
 	t_stack *stack_a;
 	t_stack *stack_b;
 
+	*stack_a = (t_stack){0, NULL, NULL};
+
 	if (ac < 2)
 		return 0;
 	validate_input(ac, av, &stack_a);
-	
+
+	t_stack *tmp;
+	for (; tmp->next != NULL) {
+		printf("%d", tmp->nbr);
+		tmp = tmp->next;
+	}
 	return 0;
 }
