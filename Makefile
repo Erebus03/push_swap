@@ -4,7 +4,8 @@ LIBFT_DIR = libft/
 LIBFT = $(LIBFT_DIR)libft.a
 
 # Source files for so_long
-SRCS = main.c validate_input.c utils/ft_atol.c utils/is_sorted.c \
+SRCS = main.c validate_input.c sort.c \
+		utils/ft_atol.c utils/is_sorted.c utils/find_min_max.c\
 		utils/linked_list_funcs.c operations/push_swap_ops.c \
 		operations/rotate.c operations/rev_rotate.c
 OBJS = $(SRCS:.c=.o)

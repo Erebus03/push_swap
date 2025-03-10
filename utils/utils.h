@@ -26,4 +26,7 @@ long ft_atol(const char *s);
 
 int	stack_is_sorted(t_stack *stack);
 
+t_stack *find_max(t_stack *head);
+t_stack *find_min(t_stack *head);
+
 #endif

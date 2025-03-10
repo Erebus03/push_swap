@@ -14,15 +14,27 @@ int	main(int ac, char **av)
 		lstclear(&stack_a);
 		return 1;
 	}
-	printf("sorted? = %d\n", stack_is_sorted(stack_a));
-	// t_stack *tmp = stack_a;
+	if (stack_is_sorted(stack_a))
+		return 0;
+	printf("not sorted, ysser\n");  
 
-	// int i = 1;
 
-	// printf("stack_a before\n");
-	// for  (; tmp != NULL; tmp = tmp->next)
-	// 	printf("stack a -- node[%d]->nbr = %d\n", i++, tmp->nbr);
-	// // /* push to stack_b */
+
+
+	int listsize = lstsize(stack_a);
+	if (listsize < 4)
+		sort3(&stack_a, &stack_b);
+	else if (listsize < 6)
+		sort5(&stack_a, &stack_b);
+		
+	t_stack *tmp = stack_a;
+
+	int i = 1;
+
+	printf("stack_a before\n");
+	for  (; tmp != NULL; tmp = tmp->next)
+		printf("stack a -- node[%d]->nbr = %d\n", i++, tmp->nbr);
+	// /* push to stack_b */
 	// for (int i = 0; i < 10; i++) {
 	// 	pb(&stack_a, &stack_b);
 	// }

@@ -18,4 +18,11 @@ int		is_integer(char *s);
 
 /* main */
 void	free_args(char **);
+
+
+
+void	sort3(t_stack **a, t_stack **b);
+void	sort5(t_stack **a, t_stack **b);
+
+
 #endif

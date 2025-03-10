@@ -34,6 +34,7 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 		sa(stack_a, 1);
 	if (stack_b)
 		sb(stack_b, 1);
+	write(1, "ss\n", 3);
 }
 
 void	pa(t_stack **a, t_stack **b)

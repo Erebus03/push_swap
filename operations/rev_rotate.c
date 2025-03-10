@@ -34,4 +34,5 @@ void	rrr(t_stack **a, t_stack **b)
 		rra(a, 1);
 	if (b)
 		rra(b, 1);
+	write(1, "rrr\n", 3);
 }
