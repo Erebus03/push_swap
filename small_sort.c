@@ -15,5 +15,18 @@ void	sort3(t_stack **head)
 
 void	sort5(t_stack **a, t_stack **b)
 {
-	/* find the 2 min nbrs and push them to stack_b*/	
+	t_stack	*min;
+
+	while (lstsize(*a) > 3)
+	{
+		min = find_min(*a);
+		while (*a != min && (*a)->next == min)
+			ra(a, 0);
+		while (*a != min)
+			rra(a, 0);
+		pb(a, b);
+	}
+	sort3(a);
+	pa(a, b);
+	pa(a, b);
 }

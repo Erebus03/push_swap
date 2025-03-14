@@ -9,6 +9,11 @@
 #include <unistd.h>
 #include <limits.h>
 
+typedef struct _vars {
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	int		*array;
+}	t_vars;
 
 /* validate_input.c */
 int		validate_input(int ac, char **av, t_stack **stack_a);
@@ -19,9 +24,12 @@ int		is_integer(char *s);
 /* main */
 void	free_args(char **);
 
+void	bigsort(t_stack **a, t_stack **b, int *array_of_ints, int size);
+void	updateindex(int *i, int *j);
 
+void	printf_stacks(t_stack **a, t_stack **b);
 
-void	sort3(t_stack **a, t_stack **b);
+void	sort3(t_stack **a);
 void	sort5(t_stack **a, t_stack **b);
 
 

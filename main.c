@@ -1,5 +1,57 @@
 #include "push_swap.h"
 
+void	cleanup(t_stack **a, t_stack **b, int *int_array)
+{
+	lstclear(a);
+	lstclear(b);
+	free(int_array);
+}
+
+void	selection_sort(int **array, int size)
+{
+	int *arr;
+
+	int (i), (j), (min_index), (temp);
+	arr = *array;
+	i = 0;
+	while (i < size - 1)
+	{
+		min_index = i;
+		j = i + 1;
+		while (j < size)
+		{
+			if (arr[min_index] > arr[j])
+				min_index = j;
+			j++;
+		}
+		temp = arr[i];
+		arr[i] = arr[min_index];
+		arr[min_index] = temp;
+		i++;
+	}
+}
+
+int	*generate_array(t_stack **head, int size)
+{
+	t_stack	*tmp;
+	int		*array;
+	int		i;
+
+	array = (int *)malloc(size * sizeof(int));
+	if (!array)
+		return NULL;
+	tmp = *head;
+	i = -1;
+	while(++i < size)
+	{
+		array[i] = tmp->nbr;
+		tmp = tmp->next;
+	}
+	if (array)
+		selection_sort(&array, size);
+	return array;
+}
+
 int	main(int ac, char **av)
 {
 	t_stack *stack_a;
@@ -16,24 +68,42 @@ int	main(int ac, char **av)
 	}
 	if (stack_is_sorted(stack_a))
 		return 0;
-	printf("not sorted, ysser\n");  
+
+	printf("Sorting...\n\n");  
 
 
+	int size = lstsize(stack_a);
 
+	int *ar = generate_array(&stack_a, size);
 
-	int listsize = lstsize(stack_a);
-	if (listsize < 4)
-		sort3(&stack_a, &stack_b);
-	else if (listsize < 6)
+	for (int i = 0; i < size; i++) {
+		printf("arr[%d] = %d\n", i, ar[i]);
+	}
+
+	if (size <= 3)
+		sort3(&stack_a);
+	else if (size <= 5)
 		sort5(&stack_a, &stack_b);
-		
+
+	else
+		bigsort(&stack_a, &stack_b, ar, size);
+
+
 	t_stack *tmp = stack_a;
-
 	int i = 1;
-
-	printf("stack_a before\n");
+	printf("stack_a\n");
 	for  (; tmp != NULL; tmp = tmp->next)
 		printf("stack a -- node[%d]->nbr = %d\n", i++, tmp->nbr);
+
+	tmp = stack_b;
+	i = 1;
+	printf("stack_b\n");
+	for  (; tmp != NULL; tmp = tmp->next)
+		printf("stack b -- node[%d]->nbr = %d\n", i++, tmp->nbr);
+	
+	cleanup(&stack_a, &stack_a, ar);	
+	return 0;
+}
 	// /* push to stack_b */
 	// for (int i = 0; i < 10; i++) {
 	// 	pb(&stack_a, &stack_b);
@@ -59,7 +129,3 @@ int	main(int ac, char **av)
 	// tmp = stack_b;
 	// for (; tmp != NULL ; tmp = tmp->next)
 	// 	printf("stack bb -- node[%d]->nbr = %d\n", i++, tmp->nbr);
-	lstclear(&stack_a);
-	lstclear(&stack_b);
-	return 0;
-}

@@ -24,7 +24,7 @@ void	lstadd_front(t_stack **lst, t_stack *new)
 		return ;
 	if (!*lst)
 	{
-		new->next = *lst;
+		new->next = NULL;
 		new->prev = NULL;
 		*lst = new;
 		return ;
