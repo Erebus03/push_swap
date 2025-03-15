@@ -56,6 +56,8 @@ int	main(int ac, char **av)
 {
 	t_stack *stack_a;
 	t_stack *stack_b;
+	int *ar;
+	int size;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -69,16 +71,12 @@ int	main(int ac, char **av)
 	if (stack_is_sorted(stack_a))
 		return 0;
 
-	printf("Sorting...\n\n");  
+	size = lstsize(stack_a);
+	ar = generate_array(&stack_a, size);
 
-
-	int size = lstsize(stack_a);
-
-	int *ar = generate_array(&stack_a, size);
-
-	for (int i = 0; i < size; i++) {
-		printf("arr[%d] = %d\n", i, ar[i]);
-	}
+	// for (int i = 0; i < size; i++) {
+	// 	printf("arr[%d] = %d\n", i, ar[i]);
+	// }
 
 	if (size <= 3)
 		sort3(&stack_a);
@@ -87,23 +85,26 @@ int	main(int ac, char **av)
 
 	else
 		bigsort(&stack_a, &stack_b, ar, size);
-
-
-	t_stack *tmp = stack_a;
-	int i = 1;
-	printf("stack_a\n");
-	for  (; tmp != NULL; tmp = tmp->next)
-		printf("stack a -- node[%d]->nbr = %d\n", i++, tmp->nbr);
-
-	tmp = stack_b;
-	i = 1;
-	printf("stack_b\n");
-	for  (; tmp != NULL; tmp = tmp->next)
-		printf("stack b -- node[%d]->nbr = %d\n", i++, tmp->nbr);
 	
 	cleanup(&stack_a, &stack_a, ar);	
 	return 0;
 }
+	
+	
+		// t_stack *tmp = stack_a;
+		// int i = 1;
+		// printf("stack_a\n");
+		// for  (; tmp != NULL; tmp = tmp->next)
+		// 	printf("stack a -- node[%d]->nbr = %d\n", i++, tmp->nbr);
+	
+		// tmp = stack_b;
+		// i = 1;
+		// printf("stack_b\n");
+		// for  (; tmp != NULL; tmp = tmp->next)
+		// 	printf("stack b -- node[%d]->nbr = %d\n", i++, tmp->nbr);
+		
+
+		
 	// /* push to stack_b */
 	// for (int i = 0; i < 10; i++) {
 	// 	pb(&stack_a, &stack_b);

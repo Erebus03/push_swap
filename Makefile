@@ -5,9 +5,8 @@ LIBFT = $(LIBFT_DIR)libft.a
 
 # Source files for so_long
 SRCS = main.c validate_input.c small_sort.c big_sort.c \
-		utils/ft_atol.c utils/is_sorted.c utils/find_min_max.c\
-		utils/linked_list_funcs.c operations/push_swap_ops.c \
-		operations/rotate.c operations/rev_rotate.c
+		utils/ft_atol.c utils/helper_functions.c utils/linked_list_funcs.c \
+		operations/push_swap_ops.c operations/rotate.c operations/rev_rotate.c
 OBJS = $(SRCS:.c=.o)
 
 # Compiler and flags

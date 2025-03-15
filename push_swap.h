@@ -25,7 +25,8 @@ int		is_integer(char *s);
 void	free_args(char **);
 
 void	bigsort(t_stack **a, t_stack **b, int *array_of_ints, int size);
-void	updateindex(int *i, int *j);
+void	updateindex(int *i, int *j, int size);
+int		get_range(int size);
 
 void	printf_stacks(t_stack **a, t_stack **b);
 
