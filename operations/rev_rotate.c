@@ -5,6 +5,8 @@ void	rra(t_stack **head, int is_rrr_call)
 	t_stack	*last_node;
 
 	last_node = lstlast(*head);
+	if (!last_node)
+		return ;
 	(last_node->prev)->next = NULL;
 	last_node->next = *head;
 	(*head)->prev = last_node;
@@ -12,6 +14,7 @@ void	rra(t_stack **head, int is_rrr_call)
 	*head = last_node;
 	if (!is_rrr_call)
 		write(1, "rra\n", 4);
+	write(1, "didnt segf here\n", 16);
 }
 
 void	rrb(t_stack **head, int is_rrr_call)

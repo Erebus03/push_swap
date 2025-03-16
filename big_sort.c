@@ -2,18 +2,20 @@
 
 int	max_in_first_half(t_stack **stack, int size, int max)
 {
-	int i;
+	t_stack	*tmp;
+	int		i;
 
+	tmp = *stack;
 	i = -1;
-	printf("max = %d\nsize = %d\nstack = %p\n", max, size, *stack);
+	// printf("max = %d\nsize = %d\nstack = %p\n", max, size, tmp);
 	while (++i < (size / 2))
 	{
-		printf("i = %d\n", i);
-		if ((*stack)->nbr == max)
+		// printf("%d vs %d\n", tmp->nbr, max);
+		if (tmp->nbr == max)
 			return 1;
-		*stack = (*stack)->next;
+		tmp = tmp->next;
 	}
-	write(1, "no segf here\n", 13);
+	// write(1, "no segf here\n", 13);
 	return 0;
 }
 
@@ -28,22 +30,26 @@ void	swapback(t_stack **a, t_stack **b, int n)
 {
 	t_stack *max;
 	max = (find_max(*b));
-	write(1, "swaping back\n", 13);
-	printf("max = %p, max.nbr = %d\n", max, max->nbr);
+	// write(1, "swaping back\n", 13);
+	// printf("max = %p, max.nbr = %d\n", max, max->nbr);
+	// printf("b head  = %p\n", *b);
 	if (max_in_first_half(b, n, max->nbr))
 	{
-		write(1, "in FirstHalf\n", 13);
+		// write(1, "in FirstHalf\n", 13);
 		while ((*b)->nbr != max->nbr)
 			ra(a, 0);
-		write(1, "pushing toSA\n", 13);
-			pa(a, b);
+		// write(1, "pushing toSA\n", 13);
+		pa(a, b);
 	}
 	else
 	{
-		write(1, "second  half\n", 13);
-		while ((*b)->nbr != max->nbr)
+		// write(1, "second  half\n", 13);
+		while ((lstlast(*b))->nbr != max->nbr)
+		{
+			// printf("max = %p, max.nbr = %d\n*b = %p, *b.nbr = %d\n", max, max->nbr, *b, (*b)->nbr);
 			rra(a, 0);
-		write(1, "reverse rated\n", 13);
+		}
+		// write(1, "reverse rated\n", 14);
 		
 		pa(a, b);	
 	}

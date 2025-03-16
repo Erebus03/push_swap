@@ -9,42 +9,30 @@ void	lstadd_back(t_stack **lst, t_stack *new)
 	if (!*lst)
 	{
 		*lst = new;
-		new->next = new;
-		new->prev = new;
 		return ;
 	}
 	last_node = lstlast(*lst);
 	if (!last_node)
 		*lst = new;
-	else
-	{
-		new->prev = last_node;
-		last_node->next = new;
-		new->next = *lst;
-		new->next = *lst;
-		(*lst)->prev = new;
-	}
+	(*lst)->prev = last_node;
+	new->prev = last_node;
+	last_node->next = new;
 }
 
 void	lstadd_front(t_stack **lst, t_stack *new)
 {
-	t_stack	*last_node;
-
 	if (!lst || !new)
 		return ;
 	if (!*lst)
 	{
-		new->next = new;
-		new->prev = new;
+		new->next = NULL;
+		new->prev = NULL;
 		*lst = new;
 		return ;
 	}
-	last_node = lstlast(*lst);
-    new->next = *lst;
-    new->prev = last_node;
-    (*lst)->prev = new;
-    last_node->next = new;
-    *lst = new;
+	(*lst)->prev = new;
+	new->next = *lst;
+	*lst = new;
 }
 
 void	lstclear(t_stack **lst)
