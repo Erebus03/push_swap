@@ -61,6 +61,7 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
+	(void)stack_b;
 	if (ac < 2)
 		return 0;
 	if (!validate_input(ac, av, &stack_a))
@@ -68,10 +69,10 @@ int	main(int ac, char **av)
 		lstclear(&stack_a);
 		return 1;
 	}
+	size = lstsize(stack_a);
 	if (stack_is_sorted(stack_a))
 		return 0;
 
-	size = lstsize(stack_a);
 	ar = generate_array(&stack_a, size);
 
 	// for (int i = 0; i < size; i++) {

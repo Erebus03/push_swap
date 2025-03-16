@@ -2,13 +2,17 @@
 
 int	stack_is_sorted(t_stack *stack)
 {
-	while (stack->next != NULL)
+	int (i), (size);
+	i = 0;
+	size = lstsize(stack);
+	while (i++ < size)
 	{
 		if (stack->nbr > (stack->next)->nbr)
 			return 0;
 		else
 			stack = stack->next;
 	}
+	write(1, "shit sorted\n", 12);
 	return 1;
 }
 

@@ -33,5 +33,6 @@ void	printf_stacks(t_stack **a, t_stack **b);
 void	sort3(t_stack **a);
 void	sort5(t_stack **a, t_stack **b);
 
+int		max_in_first_half(t_stack **stack, int size, int max);
 
 #endif

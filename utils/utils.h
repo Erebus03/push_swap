@@ -22,9 +22,9 @@ void	lstadd_back(t_stack **alst, t_stack *new);
 void	lstclear(t_stack **lst);
 int		lstsize(t_stack *lst);
 
-long ft_atol(const char *s);
+long	ft_atol(const char *s);
 
-int	stack_is_sorted(t_stack *stack);
+int		stack_is_sorted(t_stack *stack);
 
 t_stack *find_max(t_stack *head);
 t_stack *find_min(t_stack *head);
