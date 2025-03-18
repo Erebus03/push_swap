@@ -20,24 +20,24 @@ int	stack_is_sorted(t_stack *stack)
 	while (i++ < size - 1)
 	{
 		if (stack->nbr > (stack->next)->nbr)
-			return 0;
+			return (0);
 		else
 			stack = stack->next;
 	}
-	return 1;
+	return (1);
 }
 
 int	get_range(int size)
 {
-    if (size <= 100)
-        return (size / 7);
-    else if (size <= 500)
-        return (size / 13);
-    else
-        return (50);
+	if (size <= 100)
+		return (size / 7);
+	else if (size <= 500)
+		return (size / 13);
+	else
+		return (50);
 }
 
-t_stack *find_max(t_stack *head)
+t_stack	*find_max(t_stack *head)
 {
 	t_stack	*max;
 
@@ -53,7 +53,7 @@ t_stack *find_max(t_stack *head)
 	return (max);
 }
 
-t_stack *find_min(t_stack *head)
+t_stack	*find_min(t_stack *head)
 {
 	t_stack	*min;
 

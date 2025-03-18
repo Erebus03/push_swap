@@ -13,15 +13,16 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "libft/libft.h"
-#include "utils/utils.h"
-#include "operations/operations.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <limits.h>
+# include "libft/libft.h"
+# include "utils/utils.h"
+# include "operations/operations.h"
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
 
-typedef struct _vars {
+typedef struct _vars
+{
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		*array;
@@ -32,9 +33,8 @@ int		*generate_array(t_stack **head, int size);
 void	selection_sort(int **array, int size);
 void	cleanup(t_stack **a, t_stack **b, int *int_array);
 
-
 /* validate_input.c */
-void	free_args(char **);
+void	free_args(char **args);
 int		is_integer(char *s);
 int		fill_nd_check_dup(char **args, t_stack **stack_a);
 int		process_arg(char **arg, t_stack **stack_a);

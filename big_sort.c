@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji <rajianwar421@gmail.com>             +#+  +:+       +#+        */
+/*   By: araji <araji@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 00:19:31 by araji             #+#    #+#             */
-/*   Updated: 2025/03/18 00:19:31 by araji            ###   ########.fr       */
+/*   Updated: 2025/03/18 00:58:50 by araji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	rot_direction(t_stack **a, int *arr, int chunk_max)
 {
-	t_stack *tmp;
-	int count_ra;
-	int count_rra;
-	int size;
-	
+	t_stack	*tmp;
+	int		count_ra;
+	int		count_rra;
+	int		size;
+
 	count_ra = 0;
 	size = 0;
 	size = lstsize(*a);
@@ -45,10 +45,10 @@ int	max_in_first_half(t_stack **stack, int size, int max)
 	while (++i < (size / 2))
 	{
 		if (tmp->nbr == max)
-			return 1;
+			return (1);
 		tmp = tmp->next;
 	}
-	return 0;
+	return (0);
 }
 
 void	updateindex(int *i, int *j, int size)
@@ -60,9 +60,10 @@ void	updateindex(int *i, int *j, int size)
 
 void	swapback(t_stack **a, t_stack **b, int n)
 {
-	t_stack *max;
-	int size = n;
+	t_stack	*max;
+	int		size;
 
+	size = n;
 	while (*b != NULL)
 	{
 		max = find_max(*b);

@@ -26,6 +26,7 @@ void	sa(t_stack **head, int is_ss_call)
 	if (!is_ss_call)
 		write(1, "sa\n", 3);
 }
+
 void	sb(t_stack **head, int is_ss_call)
 {
 	t_stack	*tmp;
@@ -40,6 +41,7 @@ void	sb(t_stack **head, int is_ss_call)
 	if (!is_ss_call)
 		write(1, "sb\n", 3);
 }
+
 void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	if (stack_a)
@@ -51,7 +53,7 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 
 void	pa(t_stack **a, t_stack **b)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!*b)
 		return ;
@@ -63,7 +65,7 @@ void	pa(t_stack **a, t_stack **b)
 
 void	pb(t_stack **a, t_stack **b)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!*a)
 		return ;
