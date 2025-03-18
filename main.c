@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: araji <rajianwar421@gmail.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/18 00:20:58 by araji             #+#    #+#             */
+/*   Updated: 2025/03/18 00:20:58 by araji            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	cleanup(t_stack **a, t_stack **b, int *int_array)
@@ -61,73 +73,19 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	(void)stack_b;
 	if (ac < 2)
 		return 0;
 	if (!validate_input(ac, av, &stack_a))
-	{
-		lstclear(&stack_a);
-		return 1;
-	}
+		return (lstclear(&stack_a), 1);
 	size = lstsize(stack_a);
 	if (stack_is_sorted(stack_a))
 		return 0;
-
 	ar = generate_array(&stack_a, size);
-
-	// for (int i = 0; i < size; i++) {
-	// 	printf("arr[%d] = %d\n", i, ar[i]);
-	// }
-
 	if (size <= 3)
 		sort3(&stack_a);
 	else if (size <= 5)
 		sort5(&stack_a, &stack_b);
-
 	else
 		bigsort(&stack_a, &stack_b, ar, size);
-	
-	cleanup(&stack_a, &stack_a, ar);	
-	return 0;
+	return (cleanup(&stack_a, &stack_a, ar), 0);
 }
-	
-	
-		// t_stack *tmp = stack_a;
-		// int i = 1;
-		// printf("stack_a\n");
-		// for  (; tmp != NULL; tmp = tmp->next)
-		// 	printf("stack a -- node[%d]->nbr = %d\n", i++, tmp->nbr);
-	
-		// tmp = stack_b;
-		// i = 1;
-		// printf("stack_b\n");
-		// for  (; tmp != NULL; tmp = tmp->next)
-		// 	printf("stack b -- node[%d]->nbr = %d\n", i++, tmp->nbr);
-		
-
-		
-	// /* push to stack_b */
-	// for (int i = 0; i < 10; i++) {
-	// 	pb(&stack_a, &stack_b);
-	// }
-
-	// // rb(&stack_a, 0);
-	// // rrb(&stack_b, 0);
-	
-	// tmp = stack_a;
-	// i = 0;
-	// printf("stack_a after\n");
-	// for (; tmp != NULL; tmp = tmp->next)
-	// 	printf("sstack a -- node[%d]->nbr = %d\n", i++, tmp->nbr);
-	// tmp = stack_b;
-	// printf("stack_b after\n");
-	// for (; tmp != NULL ; tmp = tmp->next)
-	// 	printf("stack b -- node[%d]->nbr = %d\n", i++, tmp->nbr);
-	// for (int i = 0; i < 5; i++) {
-	// 	rb(&stack_b, 0);
-	// 	rrb(&stack_b, 0);
-	// }
-	// printf("stack b\n");
-	// tmp = stack_b;
-	// for (; tmp != NULL ; tmp = tmp->next)
-	// 	printf("stack bb -- node[%d]->nbr = %d\n", i++, tmp->nbr);

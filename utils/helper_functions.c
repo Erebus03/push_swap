@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   helper_functions.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: araji <rajianwar421@gmail.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/18 00:19:13 by araji             #+#    #+#             */
+/*   Updated: 2025/03/18 00:19:13 by araji            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "utils.h"
 
 int	stack_is_sorted(t_stack *stack)
@@ -5,14 +17,13 @@ int	stack_is_sorted(t_stack *stack)
 	int (i), (size);
 	i = 0;
 	size = lstsize(stack);
-	while (i++ < size)
+	while (i++ < size - 1)
 	{
 		if (stack->nbr > (stack->next)->nbr)
 			return 0;
 		else
 			stack = stack->next;
 	}
-	write(1, "shit sorted\n", 12);
 	return 1;
 }
 
@@ -30,6 +41,8 @@ t_stack *find_max(t_stack *head)
 {
 	t_stack	*max;
 
+	if (!head)
+		return (NULL);
 	max = head;
 	while (head->next != NULL)
 	{
@@ -37,7 +50,7 @@ t_stack *find_max(t_stack *head)
 			max = head->next;
 		head = head->next;
 	}
-	return max;
+	return (max);
 }
 
 t_stack *find_min(t_stack *head)
@@ -51,7 +64,7 @@ t_stack *find_min(t_stack *head)
 			min = head->next;
 		head = head->next;
 	}
-	return min;
+	return (min);
 }
 
 int	lstsize(t_stack *lst)
