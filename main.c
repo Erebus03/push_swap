@@ -6,7 +6,7 @@
 /*   By: araji <araji@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 00:20:58 by araji             #+#    #+#             */
-/*   Updated: 2025/03/18 01:00:13 by araji            ###   ########.fr       */
+/*   Updated: 2025/03/18 01:27:36 by araji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	main(int ac, char **av)
 		return (lstclear(&stack_a), 1);
 	size = lstsize(stack_a);
 	if (stack_is_sorted(stack_a))
-		return (0);
+		return (cleanup(&stack_a, &stack_a, NULL), 0);
 	ar = generate_array(&stack_a, size);
 	if (size <= 3)
 		sort3(&stack_a);

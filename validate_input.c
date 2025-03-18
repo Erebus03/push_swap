@@ -6,7 +6,7 @@
 /*   By: araji <araji@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 00:21:42 by araji             #+#    #+#             */
-/*   Updated: 2025/03/18 01:04:56 by araji            ###   ########.fr       */
+/*   Updated: 2025/03/18 01:41:47 by araji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,11 @@ int	validate_input(int ac, char **av, t_stack **stack_a)
 	args = NULL;
 	while (++j < ac)
 	{
+		if (!av[j][0])
+		{
+			printf("Error\n");
+			return (0);
+		}
 		args = ft_split(av[j], ' ');
 		if (!process_arg(args, stack_a))
 		{
