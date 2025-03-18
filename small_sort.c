@@ -14,12 +14,12 @@
 
 void	sort3(t_stack **head)
 {
-	t_stack	*max;
+	int		max;
 
 	max = find_max(*head);
-	if (*head == max)
+	if ((*head)->nbr == max)
 		ra(head, 0);
-	else if ((*head)->next == max)
+	else if (((*head)->next)->nbr == max)
 		rra(head, 0);
 	if (!stack_is_sorted(*head))
 		sa(head, 0);

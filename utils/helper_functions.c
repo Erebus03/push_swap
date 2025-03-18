@@ -37,17 +37,17 @@ int	get_range(int size)
 		return (50);
 }
 
-t_stack	*find_max(t_stack *head)
+int	find_max(t_stack *head)
 {
-	t_stack	*max;
+	int	max;
 
 	if (!head)
-		return (NULL);
-	max = head;
+		return (0);
+	max = head->nbr;
 	while (head->next != NULL)
 	{
-		if (max->nbr < (head->next)->nbr)
-			max = head->next;
+		if (max < (head->next)->nbr)
+			max = (head->next)->nbr;
 		head = head->next;
 	}
 	return (max);
