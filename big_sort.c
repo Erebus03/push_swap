@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji <rajianwar421@gmail.com>             +#+  +:+       +#+        */
+/*   By: araji <araji@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 00:19:31 by araji             #+#    #+#             */
-/*   Updated: 2025/03/18 06:34:26 by araji            ###   ########.fr       */
+/*   Updated: 2025/03/19 23:37:12 by araji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,46 +53,34 @@ int	max_in_first_half(t_stack **stack, int size, int max)
 
 void	updateindex(int *i, int *j, int size)
 {
-	*i += 1;
-	if (*j < size)
+	if (*i < *j)
+		*i += 1;
+	if (*j < size - 1)
 		*j += 1;
-}
-
-int 	find_max_pos(t_stack **stack, int max)
-{
-	t_stack	*tmp;
-	int		i;
-
-	tmp = *stack;
-	i = 0;
-	while (tmp && tmp->nbr != max)
-	{
-		i++;
-		tmp = tmp->next;
-	}
-	return (i);
 }
 
 void	swapback(t_stack **a, t_stack **b, int n)
 {
-	int	(max), (size), (max_pos);
+	t_stack	*max;
+	int		size;
+
 	size = n;
 	while (*b != NULL)
 	{
-		size = lstsize(*b);
 		max = find_max(*b);
-		max_pos = find_max_pos(b, max);
-		if (max_pos <= size / 2)
+		if (max_in_first_half(b, size, max->nbr))
 		{
-			while ((*b)->nbr != max)
+			while ((*b)->nbr != max->nbr)
 				rb(b, 0);
 		}
 		else
 		{
-			while (*b && ((*b)->nbr != max))
+			while ((*b)->nbr != max->nbr)
 				rrb(b, 0);
 		}
 		pa(a, b);
+		if (size > 50)
+			size--;
 	}
 }
 

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araji <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: araji <araji@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 13:56:41 by araji             #+#    #+#             */
-/*   Updated: 2024/11/05 21:36:26 by araji            ###   ########.fr       */
+/*   Updated: 2025/03/19 21:20:42 by araji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "utils.h"
 
-static char	**clean(char **cells)
+void	clean(char **cells)
 {
 	int	i;
 
@@ -20,17 +20,17 @@ static char	**clean(char **cells)
 	while (cells[i])
 		free(cells[i++]);
 	free(cells);
-	return (NULL);
+	return ;
 }
 
-static char	**allocate_and_fill(char **cells, const char *s, int len, int k)
+char	**allocate_and_fill(char **cells, const char *s, int len, int k)
 {
 	int	j;
 
 	j = 0;
 	cells[k] = (char *)malloc((len + 1) * sizeof(char));
 	if (!cells[k])
-		return (clean(cells));
+		return (clean(cells), NULL);
 	while (j < len)
 	{
 		cells[k][j] = s[j];

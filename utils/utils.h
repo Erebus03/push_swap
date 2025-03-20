@@ -37,9 +37,16 @@ int		lstsize(t_stack *lst);
 /* num_str to long int */
 long	ft_atol(const char *s);
 
+/* ft_split.c */
+void	clean(char **cells);
+char	**allocate_and_fill(char **cells, const char *s, int len, int k);
+char	**split_core(char **cells, const char *s, char c, int words);
+int		wordcount(const char *s, char c);
+char	**ft_split(char const *s, char c);
+
 /* helper functions */
 int		stack_is_sorted(t_stack *stack);
-int		find_max(t_stack *head);
+t_stack	*find_max(t_stack *head);
 t_stack	*find_min(t_stack *head);
 int		get_range(int size);
 
